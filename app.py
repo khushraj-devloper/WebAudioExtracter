@@ -29,17 +29,10 @@ def home():
         filename = f"{unique_id}.mp3"
 
         ydl_opts = {
-            'format': 'bestaudio/best',
+            'format': 'bestaudio[ext=m4a]/bestaudio',
             'outtmpl': f'{DOWNLOAD_FOLDER}/{unique_id}.%(ext)s',
             'cookiefile': 'cookies.txt',
-
-
-
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],
+       
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             try:
@@ -50,6 +43,8 @@ def home():
             #filename = f"{uuid.uuid4()}.mp3"
 
       #  return redirect(url_for("download_file", filename=filename))
+        filename=f"downloads/{info['title']}.{info['ext']}"
+        
         return redirect(url_for("thank_you", filename=filename))
 
 
@@ -75,6 +70,7 @@ app.run(host="0.0.0.0", port=port)
 
 
 #it will download file and return to the server
+
 
 
 
