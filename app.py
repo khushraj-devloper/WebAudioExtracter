@@ -30,7 +30,9 @@ def home():
 
         ydl_opts = {
             'format': 'bestaudio/best',
-              'outtmpl': f'{DOWNLOAD_FOLDER}/{unique_id}.%(ext)s',
+            'outtmpl': f'{DOWNLOAD_FOLDER}/{unique_id}.%(ext)s',
+            'cookiefile': 'cookies.txt',
+
 
 
             'postprocessors': [{
@@ -70,3 +72,4 @@ app.run(host="0.0.0.0", port=port)
 
 
 #it will download file and return to the server
+
