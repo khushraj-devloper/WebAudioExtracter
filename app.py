@@ -7,7 +7,7 @@ import uuid
 app = Flask(__name__)
 DOWNLOAD_FOLDER = "downloads"
 
-def delayed_delete(file_path, delay=10):
+def delayed_delete(file_path, delay=26):
     def delete():
         time.sleep(delay)
         
@@ -75,6 +75,7 @@ app.run(host="0.0.0.0", port=port)
 
 
 #it will download file and return to the server
+
 
 
 
