@@ -37,13 +37,14 @@ def home():
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             try:
                 info = ydl.extract_info(video_url, download=True)
+                filename=f"downloads/{info['title']}.{info['ext']}"
             except:  
                 print("Erro")
             #filename = f"{info['title']}.mp3"  
             #filename = f"{uuid.uuid4()}.mp3"
 
       #  return redirect(url_for("download_file", filename=filename))
-        filename=f"downloads/{info['title']}.{info['ext']}"
+        
         
         return redirect(url_for("thank_you", filename=filename))
 
@@ -70,6 +71,7 @@ app.run(host="0.0.0.0", port=port)
 
 
 #it will download file and return to the server
+
 
 
 
